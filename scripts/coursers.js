@@ -1,4 +1,4 @@
-export const coursers = [
+ const coursers = [
   {
     "name": "Course 1",
     "description": "Description for Course 1",
@@ -269,7 +269,7 @@ export const coursers = [
     "name": "Course 11",
     "description": "Description for Course 11",
     "author": "Author 11",
-    "rating": 0,
+    "rating": 1,
     "reviews": 37577,
     "duration": "11:55:08",
     "lectures_counter": 74,
@@ -388,7 +388,7 @@ export const coursers = [
     "name": "Course 16",
     "description": "Description for Course 16",
     "author": "Author 16",
-    "rating": 0,
+    "rating": 1,
     "reviews": 7801,
     "duration": "03:54:54",
     "lectures_counter": 56,
@@ -434,7 +434,7 @@ export const coursers = [
     "name": "Course 18",
     "description": "Description for Course 18",
     "author": "Author 18",
-    "rating": 0,
+    "rating": 1,
     "reviews": 24603,
     "duration": "01:11:45",
     "lectures_counter": 35,
@@ -480,7 +480,7 @@ export const coursers = [
     "name": "Course 20",
     "description": "Description for Course 20",
     "author": "Author 20",
-    "rating": 0,
+    "rating": 1,
     "reviews": 43614,
     "duration": "08:23:47",
     "lectures_counter": 44,
@@ -504,3 +504,7 @@ export const coursers = [
     ]
   }
 ]
+
+ module.exports = {
+  coursers
+ };
