@@ -1,8 +1,10 @@
-import bcrypt from "bcrypt"
-import { coursers } from "./coursers"
-import { users } from "./users"
-
+require('dotenv').config()
+const bcrypt = require("bcrypt")
 const { db } = require("@vercel/postgres")
+const { coursers } = require("./coursers")
+const { users } = require("./users")
+
+
 
 async function seedUsers(client) {
   try {
@@ -49,7 +51,7 @@ async function seedCoursers(client) {
 
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS coursers (
-        id INT PRIMARY KEY AUTO_INCREMENT,
+        id SERIAL PRIMARY KEY,
         name VARCHAR(255),
         description TEXT,
         author VARCHAR(255),
@@ -79,7 +81,7 @@ async function seedCoursers(client) {
             ${course.name}, ${course.description}, ${course.author}, ${course.rating},
             ${course.reviews}, ${course.duration}, ${course.lectures_counter},
             ${course.difficulty_level}, ${course.is_best_seller}, ${course.languages},
-            ${course.comments}, ${course.price}
+            ${JSON.stringify(course.comments)}, ${course.price}
           )
           ON CONFLICT (id) DO NOTHING;
         `
@@ -99,6 +101,10 @@ async function seedCoursers(client) {
 }
 
 async function main() {
+  console.log({
+    POSTGRES_URL: process.env.POSTGRES_URL,
+    POSTGRES_URL_NON_POOLING: process.env.POSTGRES_URL_NON_POOLING
+  });
   const client = await db.connect()
 
   await seedUsers(client)
