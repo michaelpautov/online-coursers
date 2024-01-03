@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function Web() {
   return (
     <>
-      <span><div>Wrong place for text<div/></span>
+      <span><div>Wrong place for text</div></span>
       <section className="bg-white dark:bg-gray-900">
         <div className="mx-auto grid max-w-screen-xl px-4 py-8 text-center lg:py-16">
           <div className="mx-auto place-self-center">
